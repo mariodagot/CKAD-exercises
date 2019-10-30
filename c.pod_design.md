@@ -83,7 +83,7 @@ kubectl label po -lapp app-
 </p>
 </details>
 
-### Create a pod that will be deployed to a Node that has the label 'accelerator=nvidia-tesla-p100'
+### Create a pod named 'cuda-test' that will be deployed to a Node that has the label 'accelerator=nvidia-tesla-p100'
 
 <details><summary>show</summary>
 <p>
@@ -107,6 +107,54 @@ You can easily find out where in the YAML it should be placed by:
 
 ```bash
 kubectl explain po.spec
+```
+
+</p>
+</details>
+
+### Check and see that the pod in in Pending status and the reason ###
+
+<details><summary>show</summary>
+<p>
+
+
+```bash
+kubectl get pod -o wide
+kubectl describe pod cuda-test
+```
+
+</p>
+</details>
+
+### List kubernetes nodes and it's labels. No node exists with label accelerator=nvidia-tesla-p100 and due to that the pod is kept in Pending status  ###
+
+<details><summary>show</summary>
+<p>
+
+
+```bash
+kubectl get nodes --show-labels
+```
+
+</p>
+</details>
+
+### Add label 'accelerator=nvidia-tesla-p100' to node and check the pod status  ###
+
+<details><summary>show</summary>
+<p>
+
+
+```bash
+kubectl label nodes node01 accelerator=nvidia-tesla-p100 # Replace node01 with the name of the correct node name for your cluster
+kubectl get nodes --show-labels
+```
+
+Check now the status, the pod should be in Running status now
+
+```bash
+kubectl get pod -o wide
+kubectl describe pod cuda-test
 ```
 
 </p>
