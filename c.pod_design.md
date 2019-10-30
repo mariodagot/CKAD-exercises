@@ -112,7 +112,7 @@ kubectl explain po.spec
 </p>
 </details>
 
-### Check and see that the pod in in Pending status and the reason ###
+### Check and see that the pod is in Pending status and what is the reason ###
 
 <details><summary>show</summary>
 <p>
@@ -150,7 +150,7 @@ kubectl label nodes node01 accelerator=nvidia-tesla-p100 # Replace node01 with t
 kubectl get nodes --show-labels
 ```
 
-Check now the status, the pod should be in Running status now
+Check the pod status. The pod should be in Running status now.
 
 ```bash
 kubectl get pod -o wide

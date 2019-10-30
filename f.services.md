@@ -1,7 +1,7 @@
 ![](https://gaforgithub.azurewebsites.net/api?repo=CKAD-exercises/services&empty)
 # Services and Networking (13%)
 
-### Create a pod with image nginx called nginx and expose its port 80
+### Create a pod with image nginx called nginx and expose it as a service on port 80
 
 <details><summary>show</summary>
 <p>
@@ -12,7 +12,7 @@ kubectl run nginx --image=nginx --restart=Never --port=80 --expose
 ```
 
 </p>
-</details>
+</details>c
 
 
 ### Confirm that ClusterIP has been created. Also check endpoints
